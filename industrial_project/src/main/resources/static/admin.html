@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="navigation">
+        <h1>Admin Panel</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <button id="logoutButton">Logout</button>
+        </nav>
+    </header>
+
+    <main class="admin-panel">
+        <h2>Users Management</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="usersTable">
+                <!-- Данные пользователей -->
+            </tbody>
+        </table>
+
+        <h3>Add User</h3>
+        <form id="addUserForm">
+            <label>Username:</label>
+            <input type="text" id="newUsername" required>
+            <label>Password:</label>
+            <input type="password" id="newPassword" required>
+            <label>Role:</label>
+            <select id="roleSelect"></select>
+            <button type="submit">Add User</button>
+        </form>
+        <h3>All Orders</h3>
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Client</th>
+                    <th>Equipment</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Orders will be dynamically loaded here -->
+            </tbody>
+        </table>
+        <h3>Manage Project Documents</h3>
+        <form id="addDocumentForm">
+            <label for="documentName">Name:</label>
+            <input type="text" id="documentName" required>
+            <label for="documentDescription">Description:</label>
+            <input type="text" id="documentDescription">
+            <button type="submit">Add Document</button>
+        </form>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody  id="documentTable">
+                <!-- Documents will be loaded here -->
+            </tbody>
+        </table>             
+        <h2>Equipment Management</h2>
+        <form id="addEquipmentForm">
+            <label>Equipment Name: <input type="text" id="equipmentName" required></label>
+            <label>Serial Number: <input type="text" id="equipmentSerialNumber" required></label>
+            <label>Description: <input type="text" id="equipmentDescription"></label>
+            <button type="submit">Add Equipment</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Serial Number</th>
+                    <th>Status</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="equipmentTable"></tbody>
+        </table>
+    </main>
+
+    <script src="js/admin.js" type="module"></script>
+</body>
+</html>

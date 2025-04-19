@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Project System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <header class="navigation">
+        <h1>Our Industrial Project</h1>
+        <nav>
+            <span id="userInfo"></span>
+            <button id="authButton">Login</button>
+            <button id="logoutButton" class="hidden">Logout</button>
+            <button id="adminButton" class="hidden" onclick="window.location.href='admin.html'">Admin Panel</button>
+        </nav>
+    </header>
+    <!-- Основной контент -->
+    <main>
+        <h2>Create Order</h2>
+        <form id="orderForm">
+            <label>Equipment:
+                <select id="equipmentSelect">
+                    <option value="">Select Equipment</option>
+                </select>
+            </label>
+            <button type="submit">Place Order</button>
+        </form>
+        <h2>Your Orders</h2>
+        <table id="userOrdersTable">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Equipment</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Orders will be dynamically loaded here -->
+            </tbody>
+        </table>
+        <button id="viewDocumentationButton">View Documentation</button>
+        <h2>About Us</h2>
+        <p>Welcome to the best industrial management system. Here is some information about our company...</p>
+    </main>
+
+    <!-- Popup для логина -->
+    <div id="loginPopup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <h2>Login</h2>
+            <form id="loginForm" method="post">
+                <label>Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label>Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p id="loginError" class="error-message"></p>
+            <p>New here? <a href="#" id="showRegister">Register</a></p>
+        </div>
+    </div>
+
+    <!-- Popup для регистрации -->
+    <div id="registerPopup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label>Username:</label>
+                <input type="text" id="regUsername" required>
+                <label>Password:</label>
+                <input type="password" id="regPassword" required>
+                <p id="passwordHint" class="hint-message hidden">
+                    Password must be 8-30 characters, include uppercase, lowercase, number, and special character (@$!%*?&).
+                </p>
+                <button type="submit">Register</button>
+            </form>
+            <p id="registerError" class="error-message"></p>
+        </div>
+    </div>
+
+        <!-- Попап выбора документа -->
+        <div id="selectDocumentPopup" class="popup hidden">
+            <div class="popup-content">
+                <span class="close-btn" id="closeSelectDocumentPopup">×</span>
+                <h2>Select a Document</h2>
+                <label for="documentSelect">Choose Document:</label>
+                <select id="documentSelect">
+                    <!-- Опции будут загружены через JS -->
+                </select>
+                <button id="viewDocumentButton">View</button>
+            </div>
+        </div>
+    
+        <!-- Попап просмотра документа -->
+        <div id="viewDocumentPopup" class="popup hidden">
+            <div class="popup-content">
+                <span class="close-btn" id="closeViewDocumentPopup">×</span>
+                <h2 id="documentTitle"></h2>
+                <p id="documentDescription"></p>
+            </div>
+        </div>
+
+    <script src="js/api.js" type="module"></script>
+    <script src="js/auth.js" type="module"></script>
+    <script src="js/index.js" type="module"></script>
+</body>
+</html>

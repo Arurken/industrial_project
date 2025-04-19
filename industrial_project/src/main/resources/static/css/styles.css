@@ -1,0 +1,464 @@
+/* === Общие стили и Сброс === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #f8f9fa; /* Более светлый фон */
+    color: #212529; /* Основной цвет текста - темнее */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* === Навигация === */
+.navigation {
+    background-color: #343a40; /* Темно-серый */
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.navigation nav a,
+.navigation nav button {
+    color: #adb5bd; /* Светло-серый для ссылок/кнопок */
+    text-decoration: none;
+    background: none;
+    border: none;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navigation nav a:hover,
+.navigation nav button:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navigation nav #userInfo {
+    color: #e9ecef;
+    margin-right: 1rem;
+}
+
+/* Скрытые элементы (важно!) */
+.hidden {
+    display: none !important;
+}
+
+/* === Основной контент админ-панели === */
+main.admin-panel {
+    padding: 2rem;
+    flex-grow: 1;
+    max-width: 1200px; /* Ограничиваем ширину для читаемости */
+    width: 100%;
+    margin: 1rem auto; /* Центрируем */
+}
+
+main.admin-panel h2 {
+    font-size: 1.8rem;
+    color: #495057; /* Приглушенный цвет заголовка */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6; /* Линия под заголовком */
+}
+
+main.admin-panel h3 {
+    font-size: 1.4rem;
+    color: #495057;
+    margin-top: 2.5rem; /* Больше отступ сверху */
+    margin-bottom: 1rem;
+}
+
+/* === Таблицы === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: #ffffff;
+    border-radius: 8px; /* Скругление углов */
+    overflow: hidden; /* Чтобы border-radius работал с th */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Мягкая тень */
+    font-size: 0.95rem;
+}
+
+table th,
+table td {
+    padding: 0.9rem 1rem; /* Увеличен padding */
+    text-align: left;
+    vertical-align: middle; /* Выравнивание по центру */
+    border-bottom: 1px solid #dee2e6; /* Светлые разделители строк */
+}
+
+table th {
+    background-color: #e9ecef; /* Светло-серый фон заголовков */
+    color: #495057;
+    font-weight: 600; /* Полужирный */
+    text-transform: uppercase; /* Заглавные буквы */
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+table tr:last-child td {
+    border-bottom: none; /* Убираем границу у последней строки */
+}
+
+table tr:hover {
+    background-color: #f1f7ff; /* Легкий голубой при наведении */
+}
+
+/* Выделение активного пользователя */
+table tr.active-user {
+    background-color: #fff3cd; /* Светло-желтый */
+    font-weight: bold;
+}
+
+table td select {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    min-width: 150px; /* Минимальная ширина для селекта статуса */
+}
+
+/* === Формы === */
+form {
+    margin-top: 1rem;
+    padding: 1.8rem; /* Больше padding */
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2.5rem; /* Отступ между формами */
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600; /* Полужирный label */
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+form input[type="text"],
+form input[type="password"],
+form select {
+    width: 100%;
+    padding: 0.7rem 0.9rem; /* Увеличен padding */
+    margin-bottom: 1.2rem;
+    border: 1px solid #ced4da; /* Граница */
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form select:focus {
+    border-color: #80bdff; /* Синяя граница при фокусе */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Легкая тень при фокусе */
+}
+
+/* === Кнопки === */
+button {
+    display: inline-block; /* Важно для корректного отображения */
+    padding: 0.6rem 1.2rem; /* Оптимальный размер */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+        color 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap; /* Предотвратить перенос текста */
+}
+
+/* Кнопка добавления/основного действия (в формах) */
+form button[type="submit"] {
+    background-color: #007bff; /* Синий */
+    color: white;
+    width: auto; /* Не на всю ширину */
+    min-width: 120px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3; /* Темнее при наведении */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Кнопки действий в таблицах */
+table td button {
+    padding: 0.4rem 0.8rem; /* Чуть меньше кнопки в таблице */
+    font-size: 0.85rem;
+    margin-right: 0.5rem; /* Отступ между кнопками */
+}
+
+table td button:last-child {
+    margin-right: 0;
+}
+
+/* Кнопка "Change Role" / "Save Status" */
+.change-role-btn,
+.save-status-btn {
+    background-color: #17a2b8; /* Бирюзовый */
+    color: white;
+    border-color: #17a2b8;
+}
+.change-role-btn:hover,
+.save-status-btn:hover {
+    background-color: #117a8b;
+    border-color: #10707f;
+}
+
+/* Кнопка "Delete" */
+.delete-user-btn,
+.delete-equipment-btn,
+.delete-document-btn,
+.delete-order-btn {
+    background-color: #dc3545; /* Красный */
+    color: white;
+    border-color: #dc3545;
+}
+.delete-user-btn:hover,
+.delete-equipment-btn:hover,
+.delete-document-btn:hover,
+.delete-order-btn:hover {
+    background-color: #bd2130;
+    border-color: #b21f2d;
+}
+
+/* === Стили для Попапов (остаются базовыми) === */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 2rem;
+    border-radius: 8px;
+    min-width: 350px; /* Минимальная ширина */
+}
+
+.popup-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #343a40;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 1.5rem; /* Крупнее */
+    font-weight: bold;
+    color: #6c757d; /* Серый */
+    transition: color 0.2s ease;
+}
+.popup .close-btn:hover {
+    color: #343a40; /* Темнее при наведении */
+}
+
+.popup form label {
+    font-weight: normal; /* Обычный шрифт для label в попапе */
+}
+
+.popup form button {
+     width: 100%; /* Кнопка на всю ширину в попапе */
+     margin-top: 0.5rem;
+}
+
+.error-message {
+    color: #dc3545; /* Красный для ошибок */
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    text-align: center;
+}
+
+.hint-message {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.popup p { /* Стили для текста "New here?" или "Already have account?" */
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+.popup p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.popup p a:hover {
+    text-decoration: underline;
+}
+
+/* === Адаптивность (базовая) === */
+@media (max-width: 768px) {
+    main.admin-panel {
+        padding: 1rem;
+    }
+    .navigation {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navigation nav {
+        margin-top: 0.5rem;
+        margin-left: -1rem; /* Компенсировать отступ у первой кнопки */
+    }
+    table th, table td {
+        padding: 0.6rem 0.8rem;
+    }
+    table {
+        font-size: 0.9rem;
+    }
+    /* Можно добавить стили для скрытия менее важных колонок или горизонтальной прокрутки таблиц */
+}
+
+@media (max-width: 480px) {
+    .popup {
+        width: 90%;
+        padding: 1.5rem;
+    }
+    form button[type="submit"],
+    table td button {
+        width: 100%; /* Кнопки на всю ширину на мал. экранах */
+        margin-bottom: 0.5rem;
+    }
+     table td button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+#selectDocumentPopup .popup-content,
+#viewDocumentPopup .popup-content {
+    min-width: 400px; /* Чуть шире */
+    padding: 1.5rem; /* Внутренний отступ */
+}
+
+#selectDocumentPopup h2,
+#viewDocumentPopup h2 {
+    margin-bottom: 1.5rem; /* Отступ под заголовком */
+    font-size: 1.5rem; /* Размер заголовка */
+    color: #343a40;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6; /* Линия под заголовком */
+    padding-bottom: 0.8rem;
+}
+
+/* Стили для попапа "Select a Document" */
+#selectDocumentPopup label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+#selectDocumentPopup select#documentSelect {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background-color: #fff; /* Фон для select */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#selectDocumentPopup select#documentSelect:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#selectDocumentPopup button#viewDocumentButton {
+    /* Используем стили основной кнопки */
+    background-color: #007bff;
+    color: white;
+    width: 100%; /* На всю ширину попапа */
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#selectDocumentPopup button#viewDocumentButton:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Стили для попапа "View Document" */
+#viewDocumentPopup #documentTitle {
+    /* Заголовок уже стилизован через общий h2 */
+    text-align: center; /* Убедимся, что он по центру */
+}
+
+#viewDocumentPopup #documentDescription {
+    margin-top: 1rem; /* Отступ сверху */
+    font-size: 1rem; /* Нормальный размер текста */
+    color: #495057; /* Цвет текста */
+    line-height: 1.7; /* Увеличенный межстрочный интервал */
+    white-space: pre-wrap; /* Сохранять переносы строк из описания */
+    background-color: #f8f9fa; /* Легкий фон для блока описания */
+    padding: 1rem; /* Внутренний отступ */
+    border-radius: 4px;
+    min-height: 100px; /* Минимальная высота */
+    text-align: left; /* Выравнивание по левому краю */
+}
+
+/* Дополнительный стиль для кнопки "View Documentation" в основном контенте */
+main > button#viewDocumentationButton {
+    /* Применяем стили вторичной кнопки (например, серый) */
+    background-color: #6c757d; /* Серый */
+    color: white;
+    border-color: #6c757d;
+    margin-bottom: 2rem; /* Отступ снизу до следующего элемента */
+    display: block; /* Чтобы margin работал */
+    min-width: 200px; /* Минимальная ширина */
+    margin-left: auto; /* Выровнять по правому краю (опционально) */
+    margin-right: auto; /* Выровнять по центру (если убрать margin-left) или 0 для правого края */
+
+}
+
+main > button#viewDocumentationButton:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
